@@ -31,7 +31,7 @@ jobs:
       uses: docker/build-push-action@v6.16.0
       with:
         context: .
-        file: ./docker/Dockerfile
+        file: ./Dockerfile
         platforms: linux/amd64
         target: docker
         builder: ${{ steps.buildx.outputs.name }}

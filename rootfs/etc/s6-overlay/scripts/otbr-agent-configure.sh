@@ -17,14 +17,14 @@ fi
 
 # Check if SET_LEADER is set and not equal to "0"
 if [ -n "$SET_LEADER" ] && [ "$SET_LEADER" != "0" ] ; then
+    # Check if LEADER_WEIGHT is set and not equal to "0"
+    if [ -n "$LEADER_WEIGHT" ] && [ "$LEADER_WEIGHT" != "0" ] ; then
+        echo "INFO: Setting leader weight to $LEADER_WEIGHT"
+        ot-ctl leaderweight $LEADER_WEIGHT
+    fi
+
     echo "INFO: Setting as Leader."
     ot-ctl state leader
-fi
-
-# Check if LEADER_WEIGHT is set and not equal to "0"
-if [ -n "$LEADER_WEIGHT" ] && [ "$LEADER_WEIGHT" != "0" ] ; then
-    echo "INFO: Setting leader weight to $LEADER_WEIGHT"
-    ot-ctl leaderweight $LEADER_WEIGHT
 fi
 
 # To avoid asymmetric link quality the TX power from the controller should not
