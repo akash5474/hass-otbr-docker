@@ -33,7 +33,6 @@ jobs:
         context: .
         file: ./Dockerfile
         platforms: linux/amd64
-        target: docker
         builder: ${{ steps.buildx.outputs.name }}
         push: true
         tags: ${{ secrets.DOCKER_HUB_USERNAME }}/hass-otbr:latest
