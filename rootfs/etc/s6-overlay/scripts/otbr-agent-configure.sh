@@ -17,6 +17,14 @@ fi
 
 # Check if SET_LEADER is set and not equal to "0"
 if [ -n "$SET_LEADER" ] && [ "$SET_LEADER" != "0" ] ; then
+    # Disable SRP Client
+    ot-ctl srp client stop
+    ot-ctl srp client autostart disable
+
+    # Enable SRP Server
+    ot-ctl srp server auto enable
+    ot-ctl srp server enable
+
     # Check if LEADER_WEIGHT is set and not equal to "0"
     if [ -n "$LEADER_WEIGHT" ] && [ "$LEADER_WEIGHT" != "0" ] ; then
         echo "INFO: Setting leader weight to $LEADER_WEIGHT"
